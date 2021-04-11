@@ -3,9 +3,9 @@ Entry for HackIllinois 2021. Joung and Vik make a website that follows the opera
 
 ## To Use
 Navigate to the WebOS Directory and run the following commands:  
-`cd client`  
-`yarn`  
-`yarn start`  
+```cd client  
+yarn  
+yarn start  
    
-`cd api`   
-`yarn yarn start`
+cd api   
+yarn yarn start```
