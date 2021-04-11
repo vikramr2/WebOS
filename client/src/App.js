@@ -100,18 +100,6 @@ class App extends Component {
 
         return (
           <div>
-            <ul class="nav">
-                  <li id="home" class="icon"><a href="https://www.apple.com"><img src="" alt="" /></a></li>
-                  <li><a href="https://store.apple.com/us">Store</a></li>
-                  <li><a href="https://www.apple.com/mac/">Mac</a></li>
-                  <li><a href="https://www.apple.com/iphone/">iPhone</a></li>
-                  <li><a href="https://www.apple.com/watch/">Watch</a></li>
-                  <li><a href="https://www.apple.com/ipad/">iPad</a></li>
-                  <li><a href="https://www.apple.com/ipod/">iPod</a></li>
-                  <li><a href="https://www.apple.com/itunes/">iTunes</a></li>
-                  <li><a href="https://www.apple.com/support/">Support</a></li>
-                 <li id="search" class="icon"><a href=""><img src="" alt="" /></a></li>
-            </ul>
             <div class="ocean">
                 <div class="wave"></div>
                 <div class="wave"></div>
@@ -137,8 +125,6 @@ class App extends Component {
               <button id = "inner1" class="innerbtn" onClick={this.addApp1}/>
               <button id = "inner2" class="innerbtn" onClick={this.addApp2}/>
               <button id = "inner3" class="innerbtn" onClick={this.addApp3}/>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
               </div>
             </div>
             
