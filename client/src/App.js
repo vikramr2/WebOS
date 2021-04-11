@@ -14,7 +14,7 @@ class App extends Component {
         .catch(err => console.log(err));
   }
 
-  addApp = (e) => {
+  addApp1 = (e) => {
         e.preventDefault();
 
         fetch('http://localhost:5000/api/apps', {
@@ -23,17 +23,63 @@ class App extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                linkto: "http://comingsoon.com/",
-                imagelink: "https://www.flaticon.com/premium-icon/icons/svg/2847/2847520.svg",
+                linkto: "https://www.facebook.com",
+                imagelink: "https://www.flaticon.com/svg/vstatic/svg/1384/1384053.svg?token=exp=1618180589~hmac=b5a309fc40bd5484fd61be0f83a016e4",
             })
         })
         .then(() => this.getApps())
         .catch(err => console.log(err));
   }
 
+  addApp2 = (e) => {
+        e.preventDefault();
+
+        fetch('http://localhost:5000/api/apps', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                linkto: "https://www.linkedin.com/in/vikram-ramavarapu-972433195/",
+                imagelink: "https://media-exp1.licdn.com/dms/image/C4D03AQHrqn3uJItkCA/profile-displayphoto-shrink_400_400/0/1570387182417?e=1623888000&v=beta&t=nqFZuw-9sNU1x2ttE5v0SanGIicGnHca5oDk6wOOmd0",
+            })
+        })
+        .then(() => this.getApps())
+        .catch(err => console.log(err));
+  }
+
+  addApp3 = (e) => {
+        e.preventDefault();
+
+        fetch('http://localhost:5000/api/apps', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                linkto: "https://www.linkedin.com/in/joung-won-b43988207/",
+                imagelink: "https://media-exp1.licdn.com/dms/image/C4E03AQFeWjkdUbNRRw/profile-displayphoto-shrink_400_400/0/1618011029572?e=1623888000&v=beta&t=0MSnWTZ1q3rGUvHmji52FSzWcp6dP08XucIJgfWWd5U",
+            })
+        })
+        .then(() => this.getApps())
+        .catch(err => console.log(err));
+  }
+
+  deleteApp = (e) => {
+        e.preventDefault();
+        
+        fetch(`http://localhost:5000/api/apps/${e.target.id.value}`, {
+            method: 'DELETE',
+        })
+        .then(() => this.getContacts())
+        .catch(err => console.log(err));
+    }
+
   componentDidMount() {
         this.getApps();
   }
+
+  
 
   render() {
         let appList = "";
@@ -43,6 +89,9 @@ class App extends Component {
                 <a href={app.linkto}>
                   <img src={app.imagelink} class="img-fluid" alt="mac"/>
                 </a>
+                <button class="deleteicon" onClick = {this.deleteApp}>
+                <input type="hidden" name="id" value={app._id} />
+                </button>
               </li>);
         } else {
             appList = "Loading...";
@@ -50,6 +99,7 @@ class App extends Component {
 
         return (
           <div>
+            
             <div class="ocean">
                 <div class="wave"></div>
                 <div class="wave"></div>
@@ -69,9 +119,17 @@ class App extends Component {
                 </div>
               </div>      
             </div>
-            <div id="mybutton">
-              <button onClick={this.addApp} class="feedback">Add Final Project to Dock!</button>
+            <div id="mybutton" class="dropup">
+              <button class="dropbtn"></button>
+              <div class="dropup-content">
+              <button id = "inner1" class="innerbtn" onClick={this.addApp1}/>
+              <button id = "inner2" class="innerbtn" onClick={this.addApp2}/>
+              <button id = "inner3" class="innerbtn" onClick={this.addApp3}/>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+              </div>
             </div>
+            
             </div>
         );
   }
