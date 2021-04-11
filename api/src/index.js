@@ -1,20 +1,12 @@
+
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const cors = require("cors");
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://jounghw2:Wlswls7277@cluster0.b42qf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-});
-
-var mongoDB = 'mongodb+srv://jounghw2:Wlswls7277@cluster0.b42qf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
 mongoose
     .connect(
-        mongoDB,
+        "mongodb+srv://vikktoryos:cheesepuffs11@cluster0.yhs5e.mongodb.net/Database?retryWrites=true&w=majority",
         { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(() => {
@@ -22,6 +14,7 @@ mongoose
         app.use(cors());
         app.use(express.json());
         app.use("/api", routes);
+        console.log("we routed our apis, probably");
 
         app.listen(5000, () => {
             console.log("Server running...")

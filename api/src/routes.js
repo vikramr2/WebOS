@@ -2,10 +2,14 @@ const express = require("express");
 const app = require("./models/Apps");
 const router = express.Router();
 
+router.get('/hi', function (req, res) {
+  res.json({ message: "hello :D"});
+});
+
 // Get all apps
 router.get("/apps", async (req, res) => {
     try {
-        const apps = await App.find();
+        const apps = await app.find();
         res.send(apps);
     } catch {
         res.status(404);
@@ -27,14 +31,14 @@ router.get("/apps/:id", async (req, res) => {
 // Create new app
 router.post("/apps", async (req, res) => {
     try {
-        const app = new App({
+        const ap = new app({
             linkto: req.body.linkto,
             imagelink: req.body.imagelink,
             titles: req.body.titles
         });
 
-        await app.save();
-        res.send(app);
+        await ap.save();
+        res.send(ap);
     } catch {
         res.status(404);
         res.send({ error: "Post request error" });

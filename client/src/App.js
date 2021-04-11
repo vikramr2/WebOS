@@ -38,7 +38,7 @@ class App extends Component {
   render() {
         let appList = "";
         if (this.state.apps) {
-            appList = this.state.app.map((app, i) =>
+            appList = this.state.apps.map((app, i) =>
               <li>
                 <a href={app.linkto}>
                   <img src={app.imagelink} class="img-fluid" alt="mac"/>
@@ -70,7 +70,7 @@ class App extends Component {
               </div>      
             </div>
             <div id="mybutton">
-              <button onlick={this.addApp} class="feedback">Add Final Project to Dock!</button>
+              <button onClick={this.addApp} class="feedback">Add Final Project to Dock!</button>
             </div>
             </div>
         );
