@@ -71,7 +71,7 @@ class App extends Component {
         fetch(`http://localhost:5000/api/apps/${e.target.id.value}`, {
             method: 'DELETE',
         })
-        .then(() => this.getContacts())
+        .then(() => this.getApps())
         .catch(err => console.log(err));
     }
 
@@ -86,12 +86,13 @@ class App extends Component {
         if (this.state.apps) {
             appList = this.state.apps.map((app, i) =>
               <li>
+                <form class="deleteicon" onSubmit = {this.deleteApp}>
+                <input type="hidden" name="id" value={app._id} />
+                <input type="submit" value="Remove" class="deleter" />
+                </form>
                 <a href={app.linkto}>
                   <img src={app.imagelink} class="img-fluid" alt="mac"/>
                 </a>
-                <button class="deleteicon" onClick = {this.deleteApp}>
-                <input type="hidden" name="id" value={app._id} />
-                </button>
               </li>);
         } else {
             appList = "Loading...";
@@ -99,7 +100,18 @@ class App extends Component {
 
         return (
           <div>
-            
+            <ul class="nav">
+                  <li id="home" class="icon"><a href="https://www.apple.com"><img src="" alt="" /></a></li>
+                  <li><a href="https://store.apple.com/us">Store</a></li>
+                  <li><a href="https://www.apple.com/mac/">Mac</a></li>
+                  <li><a href="https://www.apple.com/iphone/">iPhone</a></li>
+                  <li><a href="https://www.apple.com/watch/">Watch</a></li>
+                  <li><a href="https://www.apple.com/ipad/">iPad</a></li>
+                  <li><a href="https://www.apple.com/ipod/">iPod</a></li>
+                  <li><a href="https://www.apple.com/itunes/">iTunes</a></li>
+                  <li><a href="https://www.apple.com/support/">Support</a></li>
+                 <li id="search" class="icon"><a href=""><img src="" alt="" /></a></li>
+            </ul>
             <div class="ocean">
                 <div class="wave"></div>
                 <div class="wave"></div>
