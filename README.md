@@ -8,4 +8,4 @@ yarn
 yarn start  
    
 cd api   
-yarn yarn start
+yarn start
